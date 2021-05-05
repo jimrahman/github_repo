@@ -1,16 +1,19 @@
 import * as React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Card } from "react-native-paper";
+import { Text, View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
+import { Searchbar, Button } from "react-native-paper";
 
 export default function App() {
   return (
     <>
-      <View style={styles.container}>
-        <Text style={styles.paragraph}>
-          Change code in the editor and watch it change on your phone! Save to
-          get a shareable url.
-        </Text>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.search}>
+          <Searchbar />
+          <Button mode="contained" onPress={() => console.log("worked")}>Search</Button>
+          <Text style={styles.paragraph}>
+            Search Your favorite github Repositories
+          </Text>
+        </View>
+      </SafeAreaView>
     </>
   );
 }
@@ -20,7 +23,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     backgroundColor: "#ecf0f1",
-    padding: 8,
+    marginTop: StatusBar.currentHeight,
+  },
+  search: {
+    padding: 16,
   },
   paragraph: {
     margin: 24,
