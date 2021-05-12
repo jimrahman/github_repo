@@ -12,7 +12,7 @@ const Search = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
   const removeSpaceFromQuery = searchQuery.replace(" ", "");
 
-  const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=2`;
+  const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=5`;
 
   console.log(gitURL);
 
@@ -20,9 +20,9 @@ const Search = () => {
     setLoading(true);
     fetch(gitURL)
       .then((response) => response.json())
-      .then((json) => {
-        setData(json.items);
-        console.log(json);
+      .then((json) => json.items)
+      .then((jsonData) => {
+        setData(jsonData);
       })
       .catch((e) => {
         console.error(e);
@@ -31,9 +31,13 @@ const Search = () => {
       .finally(() => setLoading(false));
   };
   console.log(searchQuery);
+  console.log(data);
+
+  const mapData = data.map((item) => item.full_name);
+  //console.log(mapData);
 
   return (
-    error == null && (
+    <>
       <View>
         <Searchbar
           placeholder="Search"
@@ -51,9 +55,13 @@ const Search = () => {
         >
           Search
         </Button>
-        <Text>{searchQuery}</Text>
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => <Text>{item.full_name}</Text>}
+        />
       </View>
-    )
+    </>
   );
 };
 
