@@ -30,11 +30,6 @@ const Search = () => {
       })
       .finally(() => setLoading(false));
   };
-  console.log(searchQuery);
-  console.log(data);
-
-  const mapData = data.map((item) => item.full_name);
-  //console.log(mapData);
 
   return (
     <>
@@ -44,7 +39,6 @@ const Search = () => {
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
-        <TextInput mode="outlined" disabled={true} value={searchQuery} />
         <Button
           mode="outlined"
           compact={true}
