@@ -33,7 +33,7 @@ const Search = () => {
   console.log(searchQuery);
 
   return (
-    error !== null && (
+    error == null && (
       <View>
         <Searchbar
           placeholder="Search"
@@ -41,7 +41,14 @@ const Search = () => {
           value={searchQuery}
         />
         <TextInput mode="outlined" disabled={true} value={searchQuery} />
-        <Button mode="outlined" compact={true} onPress={() => fetching()}>
+        <Button
+          mode="outlined"
+          compact={true}
+          onPress={() => {
+            console.log("pressed");
+            fetching();
+          }}
+        >
           Search
         </Button>
         <Text>{searchQuery}</Text>
