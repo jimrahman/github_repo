@@ -8,14 +8,9 @@
     "eject": "expo eject",
     "lint": "eslint . --ext .js"
   },
-  "jest": {
-    "preset": "react-native",
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-native/extend-expect"
-    ]
-  },
   "dependencies": {
     "bootstrap": "^4.6.0",
+    "enzyme": "^3.11.0",
     "expo": "~40.0.0",
     "expo-constants": "~9.3.3",
     "expo-status-bar": "~1.0.3",
@@ -36,7 +31,15 @@
     "@testing-library/jest-native": "^4.0.1",
     "@testing-library/react-native": "^7.2.0",
     "eslint": "^7.25.0",
+    "jest-expo": "^41.0.0",
+    "jest-fetch-mock": "^3.0.3",
     "prettier": "^2.2.1"
   },
-  "private": true
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+    ]
+  }
 }
