@@ -7,14 +7,11 @@ const Search = () => {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState(null);
-  let list = [];
 
   const onChangeSearch = (query) => setSearchQuery(query);
   const removeSpaceFromQuery = searchQuery.replace(" ", "");
 
   const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=5`;
-
-  console.log(gitURL);
 
   const fetching = () => {
     setLoading(true);
@@ -32,9 +29,6 @@ const Search = () => {
   };
   console.log(searchQuery);
   console.log(data);
-
-  const mapData = data.map((item) => item.full_name);
-  //console.log(mapData);
 
   return (
     <>
