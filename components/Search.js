@@ -38,7 +38,6 @@ const Search = () => {
           onChangeText={onChangeSearch}
           value={searchQuery}
         />
-        <TextInput mode="outlined" disabled={true} value={searchQuery} />
         <Button
           mode="outlined"
           compact={true}
