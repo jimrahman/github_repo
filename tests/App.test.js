@@ -9,7 +9,8 @@ describe("Sanity description", () => {
 });
 
 describe("App", () => {
-  it("renders serach bad", () => {
+  it("renders serach bar", () => {
     const { getByText } = render(<App />);
+    expect(getByText("Search")).toBeTruthy();
   });
 });
