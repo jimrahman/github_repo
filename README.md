@@ -21,7 +21,7 @@ After installing yarn run this command to download all the dependencies
 
 #### prerequisite
   - Docker must be installed and running in the working system
-  - provided Dorcker Server must stay ON while the app is running
+  - Provided Dorcker Server must stay ON while the app is running
 
 #### configuration
 Docker server can be started with the following command in terminal,
