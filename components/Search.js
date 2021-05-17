@@ -47,7 +47,14 @@ const Search = () => {
     console.log(postData);
     const dockerUrl = "http://192.168.0.107:8080/repo/";
     fetch(dockerUrl, postData)
-      .then((response) => console.log(response.status))
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          alert("Data have been saved");
+        } else {
+          alert("Data was not saved");
+        }
+      })
       .catch((e) => console.error(e));
   };
 
