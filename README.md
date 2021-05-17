@@ -17,7 +17,7 @@ After installing yarn run this command to download all the dependencies
 
     yarn install
 
-***note: We are not using npm
+***note: Did not use npm
 
 #### prerequisite
   - Docker must be installed and running in the working system
