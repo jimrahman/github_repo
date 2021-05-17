@@ -127,6 +127,7 @@ const Search = () => {
             console.log("pressed");
             fetching();
           }}
+          testID={"search-button"}
         >
           Search
         </Button>
