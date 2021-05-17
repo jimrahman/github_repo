@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   Text,
@@ -110,11 +110,15 @@ const Search = () => {
 
   return (
     <>
-      <View>
+      <View style={styles.container}>
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
           value={searchQuery}
+          onSubmitEditing={() => {
+            console.log("pressed");
+            fetching();
+          }}
         />
         <Button
           mode="outlined"
@@ -147,6 +151,7 @@ const styles = StyleSheet.create({
   wrapText: {
     backgroundColor: "#e9e9e9",
     fontSize: 14,
+    justifyContent: "space-around",
   },
   opacityStyle: {
     margin: 2,
