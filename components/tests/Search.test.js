@@ -26,7 +26,9 @@ describe("Search", () => {
           )
           .reply(200, stubbedGithubResponse);
 
-        const { getByTestId, findByText, getByPlaceholderText } = render(<Search />);
+        const { getByTestId, findByText, getByPlaceholderText } = render(
+          <Search />
+        );
         fireEvent.changeText(getByPlaceholderText("Search"), "a-great-query");
         fireEvent.press(getByTestId("search-button"));
 
