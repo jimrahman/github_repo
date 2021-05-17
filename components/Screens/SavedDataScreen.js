@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, FlatList, SafeAreaView } from "react-native";
+import { Button } from "react-native-paper";
 
 export default function SavedDataScreen() {
   const [savedData, setSavedData] = useState([]);
+  const [deleteData, setDeletedata] = useState("");
 
   useEffect(() => {
     fetchingSavedData();
@@ -22,6 +24,29 @@ export default function SavedDataScreen() {
       });
   };
 
+  const removeRepo = () => {
+    const apiURL = `http://192.168.0.107:8080/repo/${deleteData}`;
+    console.log(apiURL);
+    let postData = {
+      method: "DELETE",
+      body: "",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+    };
+    fetch(apiURL, postData)
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          alert("The repo has been deleted");
+        } else {
+          alert("couldn't delete the repo");
+        }
+      })
+      .catch((e) => console.error(e));
+  };
+
   const ItemView = ({ item }) => {
     return (
       <View style={styles.list}>
@@ -30,6 +55,16 @@ export default function SavedDataScreen() {
         <Text style={styles.wrapText}>{item.language}</Text>
         <Text style={styles.wrapText}>{item.stargazersCount}</Text>
         <Text style={styles.wrapText}>{item.url}</Text>
+        <Button
+          mode="contained"
+          compact={true}
+          onPress={() => {
+            setDeletedata(item.id.toString());
+            removeRepo();
+          }}
+        >
+          DELETE
+        </Button>
       </View>
     );
   };

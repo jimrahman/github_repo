@@ -19,7 +19,7 @@ const Search = () => {
   const onChangeSearch = (query) => setSearchQuery(query);
   const removeSpaceFromQuery = searchQuery.replace(" ", "");
 
-  const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=5`;
+  const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=10&sort=stargazers_count`;
 
   const fetching = () => {
     setLoading(true);

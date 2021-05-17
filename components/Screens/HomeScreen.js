@@ -1,12 +1,12 @@
 import React from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Search from "../Search";
 import { Button } from "react-native-paper";
 
 export default function HomeScreen({ navigation }) {
   return (
     <>
-      <View>
+      <View style={styles.container}>
         <Search />
         <Button
           mode="outlined"
@@ -15,6 +15,7 @@ export default function HomeScreen({ navigation }) {
             console.log("pressed");
             navigation.navigate("Saved Data");
           }}
+          style={styles.btn}
         >
           Saved Data
         </Button>
@@ -22,3 +23,12 @@ export default function HomeScreen({ navigation }) {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  btn: {
+    justifyContent: "space-around",
+  },
+});
