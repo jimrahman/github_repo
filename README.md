@@ -1,11 +1,46 @@
-# Sample Snack app
+#GitHub Repo Searcher
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+This repository houses the application code for GitHub Repo Search mobile client.
+This application is written using [React Native](https://facebook.github.io/react-native/).
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+## Dev Environment Setup
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+#### node
+Recommend node version for react native we are using is [Node 10+](https://nodejs.org/en/download/)
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+#### yarn
+Yarn is used as dependency manager for this app.
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+ - [Install yarn](https://yarnpkg.com/en/docs/install)
+ 
+After installing yarn run this command to download all the dependencies
+
+    yarn install
+
+***note: Did not use npm
+
+#### prerequisite
+  - Docker must be installed and running in the working system
+  - Provided Dorcker Server must stay ON while the app is running
+
+#### configuration
+Docker server can be started with the following command in terminal,
+
+    docker run -p 8080:8080 gcr.io/hiring-278615/reposerver:v1.1
+
+#### And Voila!
+ - Start the application's development server using the command
+
+        yarn start
+
+#### Running your React Native application
+Install the [Expo](https://expo.io/) client app on your iOS or Android phone and
+connect to the same wireless network as your computer.
+On Android, use the Expo app to scan the QR code from your terminal
+to open your project. On iOS, follow on-screen instructions to get a link.
+
+## Tests
+
+To execute the unit tests manually:
+
+    yarn jest
