@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, SafeAreaView, StatusBar } from "react-native";
 import Search from "./components/Search";
 import SaveButton from "./components/SaveButton";
+import NavigationStack from "./navigationStack";
 
 export default function App() {
   return (
     <>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.search}>
-          <Search />
-          <SaveButton />
-        </View>
-      </SafeAreaView>
+      <NavigationStack />
     </>
   );
 }
