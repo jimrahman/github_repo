@@ -14,6 +14,7 @@ const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState(null);
   const [selectedData, setSelectedData] = useState({});
+  const [postedData, setPostedData] = useState([]);
 
   const onChangeSearch = (query) => setSearchQuery(query);
   const removeSpaceFromQuery = searchQuery.replace(" ", "");
@@ -35,7 +36,21 @@ const Search = () => {
       .finally(() => setLoading(false));
   };
 
+  const fetchPostedData = () => {
+    const dockerUrl = "http://192.168.0.107:8080/repo/";
+    fetch(dockerUrl)
+      .then((response) => response.json())
+      .then((json) => json.repos)
+      .then((jsonData) => {
+        setPostedData(jsonData);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  };
+
   const postSelectedData = () => {
+    fetchPostedData();
     let postData = {
       method: "POST",
       body: JSON.stringify(selectedData),
@@ -45,17 +60,24 @@ const Search = () => {
       redirect: "follow",
     };
     const dockerUrl = "http://192.168.0.107:8080/repo/";
-    fetch(dockerUrl, postData)
-      .then((response) => {
-        console.log(response.status);
-        if (response.status === 200) {
-          alert("Data have been saved");
-        } else {
-          alert("Data was not saved");
-        }
-      })
-      .catch((e) => console.error(e));
+
+    if (postedData.length <= 10) {
+      fetch(dockerUrl, postData)
+        .then((response) => {
+          console.log(response.status);
+          if (response.status === 200) {
+            alert("Data have been saved");
+          } else {
+            alert("Data was not saved");
+          }
+        })
+        .catch((e) => console.error(e));
+    } else {
+      alert("only 10 items canbe saved");
+    }
   };
+
+  //console.log(data.length);
 
   const renderItem = ({ item }) => {
     return (
