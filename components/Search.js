@@ -44,7 +44,6 @@ const Search = () => {
       },
       redirect: "follow",
     };
-    console.log(postData);
     const dockerUrl = "http://192.168.0.107:8080/repo/";
     fetch(dockerUrl, postData)
       .then((response) => {

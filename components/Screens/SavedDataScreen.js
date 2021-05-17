@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { Button } from "react-native-paper";
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Text, FlatList, SafeAreaView } from "react-native";
 
 export default function SavedDataScreen() {
   const [savedData, setSavedData] = useState([]);
+
+  useEffect(() => {
+    fetchingSavedData();
+    return () => {};
+  }, []);
 
   const fetchingSavedData = () => {
     const dockerUrl = "http://192.168.0.107:8080/repo/";
@@ -18,26 +22,43 @@ export default function SavedDataScreen() {
       });
   };
 
+  const ItemView = ({ item }) => {
+    return (
+      <View style={styles.list}>
+        <Text style={styles.wrapText}>{item.fullName}</Text>
+        <Text style={styles.wrapText}>{item.id}</Text>
+        <Text style={styles.wrapText}>{item.language}</Text>
+        <Text style={styles.wrapText}>{item.stargazersCount}</Text>
+        <Text style={styles.wrapText}>{item.url}</Text>
+      </View>
+    );
+  };
+
   return (
     <>
-      <View>
-        <Button
-          mode="outlined"
-          compact={true}
-          onPress={() => {
-            console.log("pressed");
-          }}
-        >
-          Saved Data
-        </Button>
-      </View>
+      <SafeAreaView>
+        <View>
+          <FlatList
+            data={savedData}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={ItemView}
+          />
+        </View>
+      </SafeAreaView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  button: {
+  container: {
     flex: 1,
-    justifyContent: "flex-end",
+  },
+  list: {
+    flex: 1,
+    padding: 8,
+  },
+  wrapText: {
+    backgroundColor: "#e9e9e9",
+    fontSize: 14,
   },
 });

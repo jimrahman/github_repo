@@ -2,7 +2,6 @@ import React from "react";
 import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import Search from "./components/Search";
 import HomeScreen from "./components/Screens/HomeScreen";
 import SavedDataScreen from "./components/Screens/SavedDataScreen";
 
