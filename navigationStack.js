@@ -11,8 +11,8 @@ const Stack = createStackNavigator();
 export default function NavigationStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Git Repo Search">
-        <Stack.Screen name="Search" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Saved Data" component={SavedDataScreen} />
       </Stack.Navigator>
     </NavigationContainer>
