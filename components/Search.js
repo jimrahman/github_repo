@@ -17,9 +17,9 @@ const Search = () => {
   const [postedData, setPostedData] = useState([]);
 
   const onChangeSearch = (query) => setSearchQuery(query);
-  const removeSpaceFromQuery = searchQuery.replace(" ", "");
+  const encodedQuery = encodeURI(searchQuery);
 
-  const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=10&sort=stargazers_count`;
+  const gitURL = `https://api.github.com/search/repositories?q=${encodedQuery}&page=1&per_page=10&sort=stargazers_count`;
 
   const fetching = () => {
     setLoading(true);
@@ -116,7 +116,6 @@ const Search = () => {
           onChangeText={onChangeSearch}
           value={searchQuery}
           onSubmitEditing={() => {
-            console.log("pressed");
             fetching();
           }}
         />
@@ -124,7 +123,6 @@ const Search = () => {
           mode="outlined"
           compact={true}
           onPress={() => {
-            console.log("pressed");
             fetching();
           }}
           testID={"search-button"}
