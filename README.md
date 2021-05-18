@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# github_repo
-search github repositories 
-=======
 #GitHub Repo Searcher
 
 This repository houses the application code for GitHub Repo Search mobile client.
@@ -48,4 +44,3 @@ to open your project. On iOS, follow on-screen instructions to get a link.
 To execute the unit tests manually:
 
     yarn jest
->>>>>>> f94376ffdbc37f0d8d8a12c53246a080c7d850a1

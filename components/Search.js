@@ -14,17 +14,22 @@ const Search = () => {
   const [selectedData, setSelectedData] = useState({});
   const [postedData, setPostedData] = useState([]);
 
-  const onChangeSearch = (query) => setSearchQuery(query);
+  const onChangeSearch = (query) => {
+    setSearchQuery(query);
+    setTimeout(fetching, 3000);
+  };
   const encodedQuery = encodeURI(searchQuery);
 
   const gitURL = `https://api.github.com/search/repositories?q=${encodedQuery}&page=1&per_page=10&sort=stargazers_count`;
 
   const fetching = () => {
+    console.log("fetching");
     fetch(gitURL)
       .then((response) => response.json())
       .then((json) => json.items)
       .then((jsonData) => {
         setData(jsonData);
+        console.log("Done fetching");
       })
       .catch((e) => {
         console.error(e);
@@ -72,8 +77,6 @@ const Search = () => {
     }
   };
 
-  //console.log(data.length);
-
   const renderItem = ({ item }) => {
     return (
       <View style={styles.list}>
@@ -106,6 +109,7 @@ const Search = () => {
   return (
     <>
       <View style={styles.container}>
+        <Text>Search a github repo</Text>
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
@@ -113,6 +117,7 @@ const Search = () => {
           onSubmitEditing={() => {
             fetching();
           }}
+          testID={"search-bar"}
         />
         <Button
           mode="outlined"

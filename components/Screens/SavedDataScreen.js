@@ -40,6 +40,7 @@ export default function SavedDataScreen() {
         console.log(response.status);
         if (response.status === 200) {
           alert("The repo has been deleted");
+          fetchingSavedData();
         } else {
           alert("couldn't delete the repo");
         }
