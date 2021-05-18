@@ -10,7 +10,7 @@ describe("Sanity description", () => {
 
 describe("App", () => {
   it("renders serach bar", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("Search")).toBeTruthy();
+    const { getByTestId } = render(<App />);
+    expect(getByTestId("search-bar")).toBeTruthy();
   });
 });

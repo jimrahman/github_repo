@@ -9,20 +9,20 @@ import {
 import { Searchbar, Button } from "react-native-paper";
 
 const Search = () => {
-  const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [error, setError] = useState(null);
   const [selectedData, setSelectedData] = useState({});
   const [postedData, setPostedData] = useState([]);
 
-  const onChangeSearch = (query) => setSearchQuery(query);
-  const removeSpaceFromQuery = searchQuery.replace(" ", "");
+  const onChangeSearch = (query) => {
+    setSearchQuery(query);
+    setTimeout(fetching, 3000);
+  };
+  const encodedQuery = encodeURI(searchQuery);
 
-  const gitURL = `https://api.github.com/search/repositories?q=${removeSpaceFromQuery}&page=1&per_page=10&sort=stargazers_count`;
+  const gitURL = `https://api.github.com/search/repositories?q=${encodedQuery}&page=1&per_page=10&sort=stargazers_count`;
 
   const fetching = () => {
-    setLoading(true);
     fetch(gitURL)
       .then((response) => response.json())
       .then((json) => json.items)
@@ -31,9 +31,7 @@ const Search = () => {
       })
       .catch((e) => {
         console.error(e);
-        setError(e);
-      })
-      .finally(() => setLoading(false));
+      });
   };
 
   const fetchPostedData = () => {
@@ -64,7 +62,6 @@ const Search = () => {
     if (postedData.length <= 10) {
       fetch(dockerUrl, postData)
         .then((response) => {
-          console.log(response.status);
           if (response.status === 200) {
             alert("Data have been saved");
           } else {
@@ -76,8 +73,6 @@ const Search = () => {
       alert("only 10 items canbe saved");
     }
   };
-
-  //console.log(data.length);
 
   const renderItem = ({ item }) => {
     return (
@@ -111,20 +106,20 @@ const Search = () => {
   return (
     <>
       <View style={styles.container}>
+        <Text>Search a github repo</Text>
         <Searchbar
           placeholder="Search"
           onChangeText={onChangeSearch}
           value={searchQuery}
           onSubmitEditing={() => {
-            console.log("pressed");
             fetching();
           }}
+          testID={"search-bar"}
         />
         <Button
           mode="outlined"
           compact={true}
           onPress={() => {
-            console.log("pressed");
             fetching();
           }}
           testID={"search-button"}

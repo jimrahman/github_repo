@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Search from "../Search";
 import { Button } from "react-native-paper";
 
@@ -13,7 +13,6 @@ export default function HomeScreen({ navigation }) {
             mode="contained"
             compact={true}
             onPress={() => {
-              console.log("pressed");
               navigation.navigate("Saved Data");
             }}
             style={styles.btn}
