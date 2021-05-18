@@ -23,13 +23,11 @@ const Search = () => {
   const gitURL = `https://api.github.com/search/repositories?q=${encodedQuery}&page=1&per_page=10&sort=stargazers_count`;
 
   const fetching = () => {
-    console.log("fetching");
     fetch(gitURL)
       .then((response) => response.json())
       .then((json) => json.items)
       .then((jsonData) => {
         setData(jsonData);
-        console.log("Done fetching");
       })
       .catch((e) => {
         console.error(e);
@@ -64,7 +62,6 @@ const Search = () => {
     if (postedData.length <= 10) {
       fetch(dockerUrl, postData)
         .then((response) => {
-          console.log(response.status);
           if (response.status === 200) {
             alert("Data have been saved");
           } else {
