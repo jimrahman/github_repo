@@ -9,10 +9,8 @@ import {
 import { Searchbar, Button } from "react-native-paper";
 
 const Search = () => {
-  const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [error, setError] = useState(null);
   const [selectedData, setSelectedData] = useState({});
   const [postedData, setPostedData] = useState([]);
 
@@ -22,7 +20,6 @@ const Search = () => {
   const gitURL = `https://api.github.com/search/repositories?q=${encodedQuery}&page=1&per_page=10&sort=stargazers_count`;
 
   const fetching = () => {
-    setLoading(true);
     fetch(gitURL)
       .then((response) => response.json())
       .then((json) => json.items)
@@ -31,9 +28,7 @@ const Search = () => {
       })
       .catch((e) => {
         console.error(e);
-        setError(e);
-      })
-      .finally(() => setLoading(false));
+      });
   };
 
   const fetchPostedData = () => {
