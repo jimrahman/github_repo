@@ -47,11 +47,11 @@ const Search = () => {
       });
   };
 
-  const postSelectedData = () => {
+  const postSelectedData = (SelectData) => {
     fetchPostedData();
     let postData = {
       method: "POST",
-      body: JSON.stringify(selectedData),
+      body: JSON.stringify(SelectData),
       headers: {
         "Content-Type": "application/json",
       },
@@ -79,7 +79,7 @@ const Search = () => {
       <View style={styles.list}>
         <TouchableOpacity
           onPress={() => {
-            setSelectedData({
+            postSelectedData({
               id: item.id.toString(),
               fullName: item.full_name,
               createdAt: item.created_at,
@@ -87,7 +87,6 @@ const Search = () => {
               language: item.language,
               url: item.url,
             });
-            postSelectedData();
           }}
         >
           <Text style={styles.wrapText}>ID: {item.id}</Text>
