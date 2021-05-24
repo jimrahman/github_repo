@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b38e7b-f516-4046-82b6-09f8845053a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,14 +35,29 @@
     </task>
     <servers />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="748" y="273" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620774371701">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="748" y="273" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/-3840.13.2560.1400@0.0.2560.1400" timestamp="1620774371701" />
+    <state x="-2968" y="440" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1621825955433">
+      <screen x="-3840" y="13" width="2560" height="1400" />
+    </state>
+    <state x="-2968" y="440" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.2560.1400/-3840.13.2560.1400@-3840.13.2560.1400" timestamp="1621825955433" />
     <state x="237" y="492" width="1200" height="800" key="AVDManager" timestamp="1620775115426">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="237" y="492" width="1200" height="800" key="AVDManager/0.0.2560.1400/-3840.13.2560.1400@0.0.2560.1400" timestamp="1620775115426" />
+    <state x="-3058" y="359" key="SettingsEditor" timestamp="1621827384602">
+      <screen x="-3840" y="13" width="2560" height="1400" />
+    </state>
+    <state x="-3058" y="359" key="SettingsEditor/0.0.2560.1400/-3840.13.2560.1400@-3840.13.2560.1400" timestamp="1621827384602" />
+    <state x="-2897" y="328" width="672" height="678" key="search.everywhere.popup" timestamp="1621827176787">
+      <screen x="-3840" y="13" width="2560" height="1400" />
+    </state>
+    <state x="-2897" y="328" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-3840.13.2560.1400@-3840.13.2560.1400" timestamp="1621827176787" />
   </component>
 </project>

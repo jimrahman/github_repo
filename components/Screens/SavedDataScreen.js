@@ -4,7 +4,6 @@ import { Button } from "react-native-paper";
 
 export default function SavedDataScreen() {
   const [savedData, setSavedData] = useState([]);
-  const [deleteData, setDeletedata] = useState("");
 
   useEffect(() => {
     fetchingSavedData();
@@ -24,8 +23,9 @@ export default function SavedDataScreen() {
       });
   };
 
-  const removeRepo = () => {
-    const apiURL = `http://192.168.0.107:8080/repo/${deleteData}`;
+  const removeRepo = (selecteddata) => {
+    console.log(selecteddata);
+    const apiURL = `http://192.168.0.107:8080/repo/${selecteddata}`;
     console.log(apiURL);
     let postData = {
       method: "DELETE",
@@ -51,17 +51,18 @@ export default function SavedDataScreen() {
   const ItemView = ({ item }) => {
     return (
       <View style={styles.list}>
-        <Text style={styles.wrapText}>{item.fullName}</Text>
-        <Text style={styles.wrapText}>{item.id}</Text>
-        <Text style={styles.wrapText}>{item.language}</Text>
-        <Text style={styles.wrapText}>{item.stargazersCount}</Text>
-        <Text style={styles.wrapText}>{item.url}</Text>
+        <Text style={styles.wrapText}>Name: {item.fullName}</Text>
+        <Text style={styles.wrapText}>Id: {item.id}</Text>
+        <Text style={styles.wrapText}>Language: {item.language}</Text>
+        <Text style={styles.wrapText}>
+          StargazersCount: {item.stargazersCount}
+        </Text>
+        <Text style={styles.wrapText}>URL: {item.url}</Text>
         <Button
           mode="contained"
           compact={true}
           onPress={() => {
-            setDeletedata(item.id.toString());
-            removeRepo();
+            removeRepo(item.id.toString());
           }}
         >
           DELETE
