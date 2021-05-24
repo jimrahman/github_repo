@@ -11,7 +11,6 @@ import { Searchbar, Button } from "react-native-paper";
 const Search = () => {
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedData, setSelectedData] = useState({});
   const [postedData, setPostedData] = useState([]);
 
   const onChangeSearch = (query) => {
